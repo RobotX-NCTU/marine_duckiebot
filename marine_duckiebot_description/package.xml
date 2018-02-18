@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>duckiebot_description</name>
+  <name>marine_duckiebot_description</name>
   <version>0.0.0</version>
   <description>The duckiebot_description package</description>
 

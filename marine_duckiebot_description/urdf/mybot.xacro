@@ -5,11 +5,10 @@
   <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.0001"/>
   <xacro:arg name="veh" default="$(arg veh)"/>
-  <xacro:include filename="$(find duckiebot_description)/urdf/wheel.urdf.xacro" />
-  <xacro:include filename="$(find duckiebot_description)/urdf/mybot.gazebo" />
-  <xacro:include filename="$(find duckiebot_description)/urdf/material.xacro" />
-  <xacro:include filename="$(find duckiebot_description)/urdf/plugin/usv_gazebo_dynamics_plugin_duckiebot.xacro" />
- <xacro:include filename="$(find velodyne_description)/urdf/example.urdf.xacro"/>
+  <xacro:include filename="$(find marine_duckiebot_description)/urdf/wheel.urdf.xacro" />
+  <xacro:include filename="$(find marine_duckiebot_description)/urdf/mybot.gazebo" />
+  <xacro:include filename="$(find marine_duckiebot_description)/urdf/material.xacro" />
+  <xacro:include filename="$(find marine_duckiebot_description)/urdf/plugin/usv_gazebo_dynamics_plugin_duckiebot.xacro" />
   <!-- Defines the macro for simulated GPS -->
   <xacro:include filename="$(find kingfisher_gazebo)/urdf/gps_gazebo.xacro" />
   
@@ -62,7 +61,7 @@
     <pose>0 0 0.0 0 0 0</pose>
 
     <inertial>
-      <mass value="15.0"/>
+      <mass value="35.0"/>
       <origin xyz="0.0 0 0.0" rpy=" 0 0 0"/>
       <inertia
           ixx="0.1" ixy="0" ixz="0"
@@ -178,7 +177,7 @@
     </collision>
 
     <visual>
-      <origin xyz="0.1 0 0.08" rpy="0 0.0 0.00"/>
+      <origin xyz="0.05 0 0.08" rpy="0 0.0 0.00"/>
       <geometry>
         <mesh filename="package://duckiebot_description/urdf/duck/dduck.dae" />
       </geometry>
@@ -239,6 +238,10 @@
   </joint>
 
 
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440">
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+  </VLP-16>
 
 
 </robot>
