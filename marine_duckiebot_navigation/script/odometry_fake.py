@@ -44,7 +44,7 @@ class data_transfer():
 		self.world.pose.pose.orientation.z = msg.pose.pose.orientation.z
 		self.world.pose.pose.orientation.w = msg.pose.pose.orientation.w	
 		tmp1 = Odometry()	
-		tmp1.child_frame_id = "base_link"
+		tmp1.child_frame_id = "base_footprint"
 		tmp1.pose = msg.pose
 		tmp1.twist = msg.twist 
 		tmp1.header.frame_id = "odom"
